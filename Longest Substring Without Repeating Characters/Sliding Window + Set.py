@@ -28,16 +28,16 @@ Constraints:
 # Sliding Window + Set Approach
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
-        set = set()
+        st = set()
         length = 0
         ans = 0
 
         for r in range(len(s)):
-            while s[r] in set:
-                set.remove(s[length])
+            while s[r] in st:
+                st.remove(s[length])
                 length += 1
 
-            set.add(s[r])
+            st.add(s[r])
             ans = max(ans, r - length + 1)
 
         return ans
