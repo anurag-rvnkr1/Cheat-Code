@@ -37,7 +37,7 @@ Constraints:
     1 <= numRows <= 1000
 """
 
-# Simulation Using Rows 
+# Using Direction Variable 
 class Solution:
     def convert(self, s: str, numRows: int) -> str:
         if numRows == 1:
