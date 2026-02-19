@@ -23,4 +23,8 @@ Example 3:
 Constraints:
     -231 <= x <= 231 - 1
  
-'''
+''''''
+#Using Strings
+class Solution:
+    def isPalindrome(self, x: int) -> bool:
+        return str(x) == str(x)[::-1]
