@@ -30,3 +30,26 @@ Constraints:
     p contains only lowercase English letters, '.', and '*'.
     It is guaranteed for each appearance of the character '*', there will be a previous valid character to match.
 '''
+
+#Recursion + MEMO
+class Solution:
+    def isMatch(self, s: str, p: str) -> bool:
+         memo = {}
+
+    def dfs(i, j):
+        if (i, j) in memo:
+            return memo[(i, j)]
+
+        if j == len(p):
+            return i == len(s)
+
+        first = i < len(s) and (s[i] == p[j] or p[j] == '.')
+
+        if j+1 < len(p) and p[j+1] == '*':
+            ans = dfs(i, j+2) or (first and dfs(i+1, j))
+        else:
+            ans = first and dfs(i+1, j+1)
+
+        memo[(i, j)] = ans
+        return ans
+    return dfs(0, 0)
